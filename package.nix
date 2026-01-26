@@ -65,7 +65,7 @@ in
       wayland
       libxml2.out
     ];
-    pythonDeps = [python3.pkgs.pip];
+    pythonDeps = [python3.pkgs.pip python3.pkgs.pyside6];
     appendRunpaths = ["${lib.getLib python3}/lib"];
     qtWrapperArgs = lib.optionals forceWayland [
       "--set"
@@ -102,6 +102,7 @@ in
         -not -name 'libshiboken6.abi*.so.*' \
         -not -name 'libpyside6.abi*.so.*' \
         -delete
+      find $out -xtype l -print -delete
       cp ${desktopIcon} $out/share/pixmaps/binaryninja.png
       chmod +x $out/opt/binaryninja/binaryninja
       buildPythonPath "$pythonDeps"
