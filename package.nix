@@ -92,8 +92,9 @@ in
       mkdir -p $out/opt/binaryninja
       mkdir -p $out/share/pixmaps
       cp -r * $out/opt/binaryninja
+      rm -rf $out/opt/binaryninja/qt
       find $out/opt/binaryninja \
-        -type f \
+        \( -type f -o -type l \) \
         -name '*.so.*' \
         -not -name 'libbinaryninjacore.so.*' \
         -not -name 'libbinaryninjaui.so.*' \
