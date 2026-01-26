@@ -92,8 +92,6 @@ in
       mkdir -p $out/opt/binaryninja
       mkdir -p $out/share/pixmaps
       cp -r * $out/opt/binaryninja
-      rm -rf $out/opt/binaryninja/qt
-      rm $out/opt/binaryninja/python3/PySide6/Qt/plugins
       find $out/opt/binaryninja \
         -type f \
         -name '*.so.*' \
